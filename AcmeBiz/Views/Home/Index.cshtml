@@ -1,0 +1,21 @@
+﻿@model ProductNamesViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using AcmeBiz.BL;
+@using AcmeBiz.ViewModel;
+
+
+<h2>Welcome to Acme Biz</h2>
+
+<h3>Available Products</h3>
+<ul>
+    @foreach(string name in Model.ProductNameList.Take(10))
+    {
+        <li>@name</li>
+
+    }
+</ul>
