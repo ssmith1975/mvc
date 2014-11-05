@@ -1,0 +1,32 @@
+﻿@model List<NorthwindProductsViewModel>
+@using Northwind.ViewModel;
+@using Common;
+
+
+<ul class="list-group">
+    @foreach (NorthwindProductsViewModel product in Model)
+    {
+        //var unitPrice = String.Format("{0:0.#}", product.UnitPrice.ToString());
+
+
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-5">
+                    @*<div class="thumbnail"><img src="@Url.Action("Show", "Utility", new { id = product.CategoryID })" alt="Product Image" /></div>*@
+                    <img class="thumbnail" src="@Url.Action("Show", "Utility", new { id = product.CategoryID , imageType = ImageType.jpeg})" width="100"  alt="Product Image" />
+                    @*<br /> <b><small class="text-center">@product.Category.CategoryName</small></b>*@
+                </div>
+                <div class="col-md-7">
+                    <div class="caption">
+                        <h5>@product.ProductName</h5>
+                        <p class="">
+                            @product.UnitPrice.ToString()
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </li>
+    }
+</ul>
+

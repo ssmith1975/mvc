@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using AcmeBiz.BL;
 using AcmeBiz.ViewModel;
+using Northwind.ViewModel;
+//using AcmeBiz.Controllers;
 
 namespace AcmeBiz.Controllers
 {
@@ -15,13 +17,9 @@ namespace AcmeBiz.Controllers
 
         public ActionResult Index()
         {
-            ProductNamesViewModel viewModel = new ProductNamesViewModel()
-            {
-                ProductNameList = ProductsRepository.GetProductNames()
-            };
-            
+            HomeViewModel viewModel = ViewModelFactory.GetInstance.GetHomeViewModel();
             return View(viewModel);
-        }
+        } // end Index
 
     }
 }

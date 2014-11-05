@@ -1,8 +1,18 @@
 ﻿body {
-    font-size: .85em;
+    font-size: 16px;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: #fff;
+    
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+
+
 }
 
 header, footer, nav, section {
@@ -58,4 +68,41 @@ textarea {
 
 .validation-summary-valid {
     display: none;
+}
+
+.carousel {
+    height: 500px;
+    background: #222 url(../images/1920x1200_purple.jpg) no-repeat center center;
+    background-size: auto;
+    background-clip:border-box;
+
+}
+.carousel-inner {
+position: relative;
+width: 100%;
+overflow: hidden;
+}
+
+.carousel .item {
+    height: 500px;
+    text-align: center;
+}
+.carousel-image {
+    text-align: center;
+    height: 250px;
+    padding: 10px 0px;
+    line-height: 250px;
+}
+
+.carousel-image  img {
+    height: 100%;
+}
+.carousel-caption {
+    /*position: static;
+    bottom: 30px;
+    padding: 20px 150px ;*/
+}
+
+.list-image {
+    height: 100px;
 }
