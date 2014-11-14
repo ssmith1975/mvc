@@ -162,8 +162,6 @@
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModelFactory.cs" />
     <Compile Include="ViewModel\Products\NorthwindProductsViewModel.cs" />
-    <Compile Include="ViewModel\AdventureWorksDW\ProductNamesViewModel.cs" />
-    <Compile Include="ViewModel\AdventureWorksDW\ProductsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,10 +275,6 @@
     <ProjectReference Include="..\AcmeBiz.BL\AcmeBiz.BL.csproj">
       <Project>{4912f3f4-b8bb-45e5-ad54-1172a66bc71b}</Project>
       <Name>AcmeBiz.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AcmeBiz.DAL\AcmeBiz.DAL.csproj">
-      <Project>{d6141279-7b92-45a6-b0a8-3aa388e4a210}</Project>
-      <Name>AcmeBiz.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{86fe2ddc-76d6-4916-91ce-ee580b1c60bd}</Project>
