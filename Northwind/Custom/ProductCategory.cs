@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Northwind.Custom
 {
-    public partial class ProductCategory
+    public partial class ProductCategory:Product
     {
-        Product Product { get; set; }
-        Category Category { get; set; }
+        //Product Product { get; set; }
+        public byte[] Picture { get; set; }
     }
 }

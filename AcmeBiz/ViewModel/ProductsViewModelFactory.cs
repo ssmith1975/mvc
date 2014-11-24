@@ -25,7 +25,6 @@ namespace AcmeBiz.ViewModel
                              UnitPrice = (decimal)product.UnitPrice,
 
                              Category = product.Category,
-
                              CategoryID = (int)product.CategoryID
                          }).ToList<NorthwindProductsViewModel>();
 
@@ -48,7 +47,6 @@ namespace AcmeBiz.ViewModel
                              UnitPrice = (decimal)product.UnitPrice,
 
                              Category = product.Category,
-
                              CategoryID = (int)product.CategoryID
                          }).ToList<NorthwindProductsViewModel>();
 
@@ -68,9 +66,7 @@ namespace AcmeBiz.ViewModel
                              ProductID = product.ProductID,
                              ProductName = product.ProductName,
                              UnitPrice = (decimal)product.UnitPrice,
-
-                             Category = product.Category,
-
+                             Category = product.Category,                           
                              CategoryID = (int)product.CategoryID
                          }).ToList<NorthwindProductsViewModel>();
 
@@ -92,8 +88,7 @@ namespace AcmeBiz.ViewModel
                              ProductName = product.ProductName,
                              UnitPrice = (decimal)product.UnitPrice,
 
-                             //Category = product.Category,
-
+                             Category = product.Category,
                              CategoryID = (int)product.CategoryID
                          }).ToList<NorthwindProductsViewModel>();
 

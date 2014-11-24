@@ -70,12 +70,15 @@ textarea {
     display: none;
 }
 
+/* Styles for carousel
+-----------------------------------------------------------*/
+
 .carousel {
-    height: 500px;
+    height: 600px;
     background: #222 url(../images/1920x1200_purple.jpg) no-repeat center center;
     background-size: auto;
     background-clip:border-box;
-
+    padding: 50px 0px;
 }
 .carousel-inner {
 position: relative;
@@ -105,4 +108,30 @@ overflow: hidden;
 
 .list-image {
     height: 100px;
+}
+
+/* Custom Styles 
+-----------------------------------------------------------*/
+h3 {
+    padding: 1.5em 0em 1.2em;
+    color: #808080;
+}
+
+#page-nav {
+    margin-bottom: 50px;
+}
+
+.item-name {
+    font-weight: bold;
+    font-family: Garamond, sans-serif;
+    font-size: 1em;
+    margin-bottom: .5em;
+    line-height: 1em;
+    background-color: #4f345f;
+    color: #fff;
+   
+}
+
+.item-name, .list-details, .list-footer {
+    padding: 5px;
 }

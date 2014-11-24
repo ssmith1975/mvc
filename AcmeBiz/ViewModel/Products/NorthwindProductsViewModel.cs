@@ -25,6 +25,7 @@ namespace Northwind.ViewModel
          public short UnitOnOrder { get; set; }
          public short ReorderLevel { get; set; }
          public bool Discontinued { get; set; }
+         
 
          public List<NorthwindProductsViewModel> ProductList { get; set; }
 

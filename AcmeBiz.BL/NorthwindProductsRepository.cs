@@ -37,7 +37,7 @@ namespace AcmeBiz.BL
             Product product;
             using (var ctx = new NorthwindEntities())
             {
-                var q = from p in ctx.Products
+                var q = from p in ctx.Products.Include("Category")
                         where p.ProductID == productID
                         select p;
                 product = q.SingleOrDefault<Product>();
@@ -47,17 +47,17 @@ namespace AcmeBiz.BL
         } // GetProductByID
         static public List<Product> GetFeaturedProducts()
         {
-            List<Product> products = new  List<Product>() ;
-
+           List<Product> products = new  List<Product>() ;
+          
             using (var ctx = new NorthwindEntities())
             {
 
                 var q =  ctx.Products.Include("Category");
                 int skip = (DateTime.Now.Month - 1) * 5;
-
                 
+                // Select 5 random products
                 products = q.OrderBy(p => p.ProductID).Skip(skip).Take(5).ToList<Product>();
-                //q.Include(b => b.Category).ToList<Product>();
+
             }
 
             return products;
@@ -67,18 +67,13 @@ namespace AcmeBiz.BL
 
         static public List<Product> GetNewProducts()
         {
+           // List<Product> products;
             List<Product> products;
-
             using (var ctx = new NorthwindEntities())
             {
 
-                //var q = from product in ctx.Products
-                //        orderby product.ProductName
-                //        select product;
+               products = ctx.Products.Include("Category").OrderByDescending(p => p.ProductID).Take(5).ToList<Product>();
 
-                products = ctx.Products.Include("Category").OrderByDescending(p => p.ProductID).Take(5).ToList<Product>();
-
-                //q.Include(b => b.Category).ToList<Product>();
             }
             return products;
         } // end GetNewProducts
@@ -90,11 +85,23 @@ namespace AcmeBiz.BL
             using (var ctx = new NorthwindEntities())
             {
 
-                //var q = from product in ctx.Products
-                //        orderby product.ProductName
-                //        select product;
+                var q = from pc in ctx.GetTopSellerProducts()
+                        join c in ctx.Categories on pc.CategoryID equals  c.CategoryID
+                        select new Product { 
+                            ProductID = pc.ProductID,
+                            ProductName = pc.ProductName,
+                            SupplierID = pc.SupplierID,
+                            CategoryID = pc.CategoryID,
+                            QuantityPerUnit = pc.QuantityPerUnit,
+                            UnitPrice = pc.UnitPrice,
+                            UnitsInStock = pc.UnitsInStock,
+                            UnitsOnOrder = pc.UnitsOnOrder,
+                            ReorderLevel = pc.ReorderLevel,
+                            Discontinued = pc.Discontinued,
+                            Category =   c 
+                        };
 
-                products = ctx.GetTopSellerProducts().ToList <Product>();
+                products = q.ToList<Product>();  
                   
 
                 //q.Include(b => b.Category).ToList<Product>();
