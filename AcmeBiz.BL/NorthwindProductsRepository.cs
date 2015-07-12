@@ -48,15 +48,21 @@ namespace AcmeBiz.BL
         static public List<Product> GetFeaturedProducts()
         {
            List<Product> products = new  List<Product>() ;
-          
+           
+
             using (var ctx = new NorthwindEntities())
             {
 
                 var q =  ctx.Products.Include("Category");
-                int skip = (DateTime.Now.Month - 1) * 5;
+                //int skip = (DateTime.Now.Month - 1) * 5;
+                Random rnd = new Random(q.Count());
                 
-                // Select 5 random products
-                products = q.OrderBy(p => p.ProductID).Skip(skip).Take(5).ToList<Product>();
+                    // Select 5 random products
+                products = (from item in q
+                            orderby Guid.NewGuid()
+                            select item).Take(5).ToList<Product>();
+                    
+                    //q.OrderBy(p => rnd.Next()).Take(5).ToList<Product>();
 
             }
 
