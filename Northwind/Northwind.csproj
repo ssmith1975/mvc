@@ -174,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <Content Include="configSource.config" />
     <None Include="NorthwindEF.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NorthwindEF.edmx</DependentUpon>
