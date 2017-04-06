@@ -4,8 +4,8 @@
 # User-specific files
 *.suo
 *.user
-#*.sln.docstates
-**/configSource.config
+*.sln.docstates
+#**/configSource.config
 # Build results
 
 [Dd]ebug/
