@@ -8,9 +8,9 @@ namespace AcmeBiz.ViewModel
 {
     public partial class HomeViewModel
     {
-        public List<NorthwindProductsViewModel> FeaturedProductsList { get; set; }
-        public List<NorthwindProductsViewModel> NewProductsList { get; set; }
-        public List<NorthwindProductsViewModel> TopSellerProductsList { get; set; }
+        public List<NorthwindProductViewModel> FeaturedProductsList { get; set; }
+        public List<NorthwindProductViewModel> NewProductsList { get; set; }
+        public List<NorthwindProductViewModel> TopSellerProductsList { get; set; }
 
     }
 }

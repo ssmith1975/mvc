@@ -12,19 +12,55 @@ namespace AcmeBiz.BL
         static public List<Category> GetCategories()
         {
             List<Category> categories;
-
+            
             using (var ctx = new NorthwindEntities())
             {
-                var q = from category in ctx.Categories
-                        select category;
 
-                categories = q.ToList<Category>();
+                categories = ctx.Categories.Include("Products").ToList<Category>();
             }
 
             return categories;
 
         } // end GetCategories
 
-        
+        static public Category GetCategoryByName(string categoryName)
+        {
+            Category category = null;
+
+            using (var ctx = new NorthwindEntities())
+            {
+                //var q = from cat in ctx.Categories
+                //        where cat.CategoryName == categoryName
+                //        select cat;
+
+                category = ctx.Categories
+                    .Where(c => c.CategoryName == categoryName)                   
+                    .FirstOrDefault<Category>();
+                
+            }
+
+            return category;
+        }
+        static public Category GetCategoryById(int id)
+        {
+            Category category = null;
+
+            using (var ctx = new NorthwindEntities())
+            {
+                //var q = from cat in ctx.Categories
+                //        where cat.CategoryName == categoryName
+                //        select cat;
+
+                category = ctx.Categories
+                    .Where(c => c.CategoryID == id)
+                    .FirstOrDefault<Category>();
+
+            }
+
+            return category;
+        }
+
+
+
     }
 }

@@ -120,6 +120,9 @@ h3 {
 #page-nav {
     margin-bottom: 50px;
 }
+.display-item .list-group-item {
+    padding-top: 0px 15px 10px 15px;
+}
 
 .item-name {
     font-weight: bold;

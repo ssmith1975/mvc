@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <ApplicationInsightsResourceId>/subscriptions/d37a599b-b773-4943-a8ad-3ae3cbb2dbe0/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/AcmeBiz</ApplicationInsightsResourceId>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -152,16 +153,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Categories\NorthwindCategoryViewModel.cs" />
+    <Compile Include="ViewModel\CategoryViewModelFactory.cs" />
     <Compile Include="ViewModel\HomeViewModelFactory.cs" />
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
-    <Compile Include="ViewModel\ProductsViewModelFactory.cs" />
-    <Compile Include="ViewModel\Products\NorthwindProductsViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModelFactory.cs" />
+    <Compile Include="ViewModel\Products\NorthwindProductListViewModel.cs" />
+    <Compile Include="ViewModel\Products\NorthwindProductViewModel.cs" />
     <Compile Include="ViewModel\ViewModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,13 +266,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Utility\DisplayPhoto.cshtml" />
-    <Content Include="Views\Shared\PartialListItem.cshtml" />
+    <Content Include="Views\Shared\_ProductListShort.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\_ProductList.cshtml" />
+    <Content Include="Views\Shared\_CategoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModel\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -27,8 +27,20 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            
-            
+            <div class="container">
+                <div class="carousel-image">
+                    <img src="~/images/Automation.png" alt="automation" />
+                </div>
+                <div class="carousel-caption">
+                    <h1>Best Quality Products</h1>
+                    <p class="hidden-xs hidden-sm">
+                        Aliquam sit amet gravida nibh, facilisis gravida… Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p><a class="btn btn-lg btn-primary" href="/Products" role="button">Products</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
             <div class="container text-center">
                 <div class="carousel-image">
                     <img src="~/images/Enterprise.png" alt="Enterprise" />
@@ -40,22 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="item">
 
-            
-            <div class="container">
-                <div class="carousel-image">
-                    <img src="~/images/Automation.png" alt="automation" />
-                </div>                
-                <div class="carousel-caption">
-                    <h1>Best Quality Products</h1>
-                    <p class="hidden-xs hidden-sm">
-                        Aliquam sit amet gravida nibh, facilisis gravida… Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more about us</a></p>
-                </div>
-            </div>
-        </div>
         <div class="item">
              <div class="container">
                  <div class="carousel-image">
@@ -79,18 +76,18 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
         <h3>New Products</h3>
-        @Html.Partial("PartialListItem", Model.NewProductsList)
+        @Html.Partial("_ProductListShort", Model.NewProductsList)
     </div>
 
 
     <div class="col-sm-6 col-md-4">
         <h3>Top Seller Products</h3>
-        @Html.Partial("PartialListItem", Model.TopSellerProductsList)
+        @Html.Partial("_ProductListShort", Model.TopSellerProductsList)
     </div>
 
     <div class="col-sm-12 col-md-4">
         <h3>Featured Products</h3>
-        @Html.Partial("PartialListItem", Model.FeaturedProductsList)
+        @Html.Partial("_ProductListShort", Model.FeaturedProductsList)
     </div>
 
  

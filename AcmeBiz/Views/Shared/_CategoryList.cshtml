@@ -1,0 +1,11 @@
+﻿@model List<NorthwindCategoryViewModel>
+@using Northwind.ViewModel
+
+<ul class="list-group">
+    @foreach (NorthwindCategoryViewModel category in Model)
+    {
+        <li class="list-group-item">
+            @category.CategoryName
+        </li>
+    }
+</ul>

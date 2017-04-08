@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Northwind.ViewModel
 {
-     public partial class NorthwindProductsViewModel
+     public partial class NorthwindProductViewModel
     {
 
          public int ProductID { get; set; }
@@ -18,7 +18,7 @@ namespace Northwind.ViewModel
          public int SupplierID { get; set; }
          public int CategoryID { get; set; }
          public Category Category { get; set; }
-         public string QuantityPerUnity { get; set; }
+         public string QuantityPerUnit { get; set; }
          [DisplayFormat(DataFormatString = "{0:$#.##}")]
          public decimal UnitPrice { get; set; }
          public short UnitsInStock { get; set; }
@@ -27,7 +27,7 @@ namespace Northwind.ViewModel
          public bool Discontinued { get; set; }
          
 
-         public List<NorthwindProductsViewModel> ProductList { get; set; }
+         public List<NorthwindProductViewModel> ProductList { get; set; }
 
     }
 }

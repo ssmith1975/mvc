@@ -10,79 +10,91 @@ namespace AcmeBiz.ViewModel
 {
     public partial class ViewModelFactory
     {
-        public List<NorthwindProductsViewModel> GetNorthwindProductsViewModel()
+        public NorthwindProductListViewModel GetNorthwindProductsViewModel()
         {
+            NorthwindProductListViewModel viewmodel = new NorthwindProductListViewModel();
 
             var products = NorthwindProductsRepository.GetProducts();
+            var categories = NorthwindCategoriesRepository.GetCategories();
 
-            List<NorthwindProductsViewModel> viewModel = new List<NorthwindProductsViewModel>();
-
-            viewModel = (from product in products
-                         select new NorthwindProductsViewModel()
+            List<NorthwindProductViewModel> productList = new List<NorthwindProductViewModel>();
+            List<NorthwindCategoryViewModel> categoryList = new List<NorthwindCategoryViewModel>();
+            productList = (from product in products
+                         select new NorthwindProductViewModel()
                          {
                              ProductID = product.ProductID,
                              ProductName = product.ProductName,
                              UnitPrice = (decimal)product.UnitPrice,
+                             QuantityPerUnit = product.QuantityPerUnit,
 
                              Category = product.Category,
                              CategoryID = (int)product.CategoryID
-                         }).ToList<NorthwindProductsViewModel>();
+                         }).ToList<NorthwindProductViewModel>();
 
-            return viewModel;
+            categoryList = (from category in categories
+                          select new NorthwindCategoryViewModel()
+                          {
+                              CategoryID = category.CategoryID,
+                              CategoryName = category.CategoryName
+                          }).ToList<NorthwindCategoryViewModel>();
+
+            viewmodel.NorthwindProductList = productList;
+            viewmodel.NorthwindCategoryList = categoryList;
+
+            return viewmodel;
         } // end GetNorthwindProductsViewModel
 
 
-        public List<NorthwindProductsViewModel> GetNorthwindFeaturedProductsViewModel()
+        public List<NorthwindProductViewModel> GetNorthwindFeaturedProductsViewModel()
         {
 
             var products = NorthwindProductsRepository.GetFeaturedProducts();
 
-            List<NorthwindProductsViewModel> viewModel = new List<NorthwindProductsViewModel>();
+            List<NorthwindProductViewModel> viewModel = new List<NorthwindProductViewModel>();
 
             viewModel = (from product in products
-                         select new NorthwindProductsViewModel()
+                         select new NorthwindProductViewModel()
                          {
                              ProductID = product.ProductID,
                              ProductName = product.ProductName,
                              UnitPrice = (decimal)product.UnitPrice,
-
                              Category = product.Category,
                              CategoryID = (int)product.CategoryID
-                         }).ToList<NorthwindProductsViewModel>();
+                         }).ToList<NorthwindProductViewModel>();
 
             return viewModel;
         } // end GetNorthwindFeaturedProductsViewModel
 
-        public List<NorthwindProductsViewModel> GetNorthwindNewProductsViewModel()
+        public List<NorthwindProductViewModel> GetNorthwindNewProductsViewModel()
         {
 
             var products = NorthwindProductsRepository.GetNewProducts();
 
-            List<NorthwindProductsViewModel> viewModel = new List<NorthwindProductsViewModel>();
+            List<NorthwindProductViewModel> viewModel = new List<NorthwindProductViewModel>();
 
             viewModel = (from product in products
-                         select new NorthwindProductsViewModel()
+                         select new NorthwindProductViewModel()
                          {
                              ProductID = product.ProductID,
                              ProductName = product.ProductName,
                              UnitPrice = (decimal)product.UnitPrice,
                              Category = product.Category,                           
                              CategoryID = (int)product.CategoryID
-                         }).ToList<NorthwindProductsViewModel>();
+                         }).ToList<NorthwindProductViewModel>();
 
             return viewModel;
         } // end GetNorthwindNewProductsViewModel
 
 
-        public List<NorthwindProductsViewModel> GetNorthwindTopSellerProductsViewModel()
+        public List<NorthwindProductViewModel> GetNorthwindTopSellerProductsViewModel()
         {
 
             var products = NorthwindProductsRepository.GetTopSellerProducts();
 
-            List<NorthwindProductsViewModel> viewModel = new List<NorthwindProductsViewModel>();
+            List<NorthwindProductViewModel> viewModel = new List<NorthwindProductViewModel>();
 
             viewModel = (from product in products
-                         select new NorthwindProductsViewModel()
+                         select new NorthwindProductViewModel()
                          {
                              ProductID = product.ProductID,
                              ProductName = product.ProductName,
@@ -90,7 +102,7 @@ namespace AcmeBiz.ViewModel
 
                              Category = product.Category,
                              CategoryID = (int)product.CategoryID
-                         }).ToList<NorthwindProductsViewModel>();
+                         }).ToList<NorthwindProductViewModel>();
 
             return viewModel;
         } // GetNorthwindTopSellerProductsViewModel 
